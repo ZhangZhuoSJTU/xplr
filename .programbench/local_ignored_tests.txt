@@ -1,0 +1,21 @@
+# Course-side exclusions: tests that are environment-sensitive outside the
+# benchmark containers. Format: <branch>/<classname>.<testname>
+
+# Headless, opening /dev/tty fails with 'Device not configured (os error 6)' on macOS
+# vs Linux's 'No such device or address'; resolved paths show /private/tmp (the /tmp
+# symlink); and the tmux-driven TUI screen tests render differently than the Linux
+# capture. CLI flags, path utils and runner logic pass.
+
+8229e0a9c4bd/tests.test_cli_flags.test_stdin_flag_with_empty_input
+8229e0a9c4bd/tests.test_path_utils.test_path_with_mixed_components
+8229e0a9c4bd/tests.test_path_utils.test_relative_path_current_dir
+8229e0a9c4bd/tests.test_path_utils.test_relative_path_nested
+8229e0a9c4bd/tests.test_path_utils.test_relative_path_parent_dir
+8229e0a9c4bd/tests.test_runner.test_call_preserves_working_directory
+8229e0a9c4bd/tests.test_tui_advanced.test_visual_select_all
+955938b5e4e3/eval.tests.test_tui_xplr.test_down_and_up_navigation_changes_highlight
+955938b5e4e3/eval.tests.test_tui_xplr.test_filter_mode_and_escape_returns
+955938b5e4e3/eval.tests.test_tui_xplr.test_initial_screen_has_expected_panes
+955938b5e4e3/eval.tests.test_tui_xplr.test_quit_with_q_exits
+955938b5e4e3/eval.tests.test_tui_xplr.test_unbound_key_does_not_crash
+c3c602c9a96f/pytest.internal
